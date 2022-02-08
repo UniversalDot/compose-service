@@ -1,6 +1,6 @@
 ![Logo](https://github.com/UniversalDot/documents/blob/master/logo/rsz_jpg-02.jpg)
 
-# docker-compose
+# compose-service
 
 Docker compose service that runs both the node and front-end on a single machine.
 
