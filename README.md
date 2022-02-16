@@ -1,6 +1,6 @@
 ![Logo](https://github.com/UniversalDot/documents/blob/master/logo/rsz_jpg-02.jpg)
 
-# docker-compose
+# compose-service
 
 Docker compose service that runs both the node and front-end on a single machine.
 
@@ -13,13 +13,13 @@ Docker compose service that runs both the node and front-end on a single machine
 3. Download this repo via git.
 
 ```
-git clone https://github.com/UniversalDot/docker-compose.git
+git clone https://github.com/UniversalDot/compose-service.git
 ```
 
 4. Navigate inside the folder...
 
 ```
-cd docker-compose
+cd compose-service
 ```
 5. Run docker-compose command
 ```
