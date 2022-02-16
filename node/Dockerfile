@@ -3,9 +3,9 @@ LABEL name="Universaldot-node"
 LABEL maintainer="https://github.com/UniversalDot"
 
 ENV TZONE=Europe/Amsterdam
-ENV LANG en_US.UTF-8
+ENV LANG C.UTF-8
 ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LC_ALL C.UTF-8
 RUN ln -snf /usr/share/zoneinfo/$TZONE /etc/localtime && echo $TZONE > /etc/timezone
 
 # Install build dependencies
