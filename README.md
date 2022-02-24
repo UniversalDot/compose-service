@@ -68,3 +68,8 @@ http://SERVERIP:8000
 ```
 
 FINAL NOTE: The application is still under development so there might be problems based on current configurations or your environment/setup. This build script will be continuously improved.
+
+### Supported by Web3 Foundation 
+![Logo](https://github.com/UniversalDot/documents/blob/9d0a4c0c984bee503e13278f72049da7eae16c14/logo/web3grant/web3%20foundation_grants_badge_black.jpg)
+
+UniversalDot is recipient of the technical grant from Web3 Foundation.
