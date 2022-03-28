@@ -31,7 +31,7 @@ RUN rustup update nightly & \
 
 RUN git clone https://github.com/UniversalDot/universal-dot-node.git /universaldot-node
 WORKDIR /universaldot-node
-RUN git checkout master-release 
+RUN git checkout universal-master
 RUN cargo clean
 RUN cargo build --release
 
