@@ -75,6 +75,20 @@ services:
   #     - ./ipfs-data/cluster:/data/ipfs-cluster
 
 
+  ## TensorFlow #################################
+
+  tensorflow-serving:
+    image: tensorflow/serving:2.8.2
+    container_name: tensorflow
+    restart: on-failure
+    ports:
+      - 8500:8500
+      - 8501:8501
+    # volumes:
+    #   - /home/udot_user_01/serving/
+    # command: --mount type=bind,source=/home/udot_user_01/serving/saved_models/use-multilingual,target=/models/use-multilingual -e MODEL_NAME=use-multilingual -t tensorflow/serving
+
+
 volumes:
   node-data: {}
   peer_staging:
