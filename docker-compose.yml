@@ -1,44 +1,44 @@
 version: "3.5"
 
 services:
-  node:
-    build: ./node
-    networks:
-      universaldot:
-        ipv4_address: 172.28.0.2
-    restart: on-failure
-    stop_signal: SIGINT
-    stop_grace_period: 10s
-    ports:
-      - 9944:9944
-    expose:
-      - 9944
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "10"
-    command: bash -c "./node-template --dev --ws-external"
+  # node:
+  #   build: ./node
+  #   networks:
+  #     universaldot:
+  #       ipv4_address: 172.28.0.2
+  #   restart: on-failure
+  #   stop_signal: SIGINT
+  #   stop_grace_period: 10s
+  #   ports:
+  #     - 9944:9944
+  #   expose:
+  #     - 9944
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "10"
+  #   command: bash -c "./node-template --dev --ws-external"
 
-  front-end:
-    build: ./front-end
-    networks:
-      universaldot:
-        ipv4_address: 172.28.0.3
-    restart: on-failure
-    stop_signal: SIGINT
-    stop_grace_period: 10s
-    ports:
-      - 8000:8000
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "10"
-    environment:
-      - PROVIDER_SOCKET=ws://127.0.0.1:9944
-      - ENVIROMENT=dev
-    command: bash -c "./start.sh start"
+  # front-end:
+  #   build: ./front-end
+  #   networks:
+  #     universaldot:
+  #       ipv4_address: 172.28.0.3
+  #   restart: on-failure
+  #   stop_signal: SIGINT
+  #   stop_grace_period: 10s
+  #   ports:
+  #     - 8000:8000
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "10"
+  #   environment:
+  #     - PROVIDER_SOCKET=ws://127.0.0.1:9944
+  #     - ENVIROMENT=dev
+  #   command: bash -c "./start.sh start"
 
 
 ## IPFS #################################
@@ -46,7 +46,6 @@ services:
 
   ipfs-node:
     image: ipfs/go-ipfs:v0.5.1
-    container_name: $IPFS_NODE_CONTAINER
     restart: on-failure
     ports:
       - "4001:4001"
@@ -78,15 +77,15 @@ services:
   ## TensorFlow #################################
 
   tensorflow-serving:
-    image: tensorflow/serving:2.8.2
+    build: ./tensorflow
     container_name: tensorflow
     restart: on-failure
     ports:
       - 8500:8500
       - 8501:8501
-    # volumes:
-    #   - /home/udot_user_01/serving/
-    # command: --mount type=bind,source=/home/udot_user_01/serving/saved_models/use-multilingual,target=/models/use-multilingual -e MODEL_NAME=use-multilingual -t tensorflow/serving
+    volumes:
+      - tf-model:/models/use
+    command: --mount type=bind,source=/models/model/use,target=/models/use -e MODEL_NAME=use -t tensorflow/serving
 
 
 volumes:
@@ -94,11 +93,12 @@ volumes:
   peer_staging:
   peer_data:
   peer_cluster:
+  tf-model: 
 
-networks:
-  universaldot:
-    name: universaldot
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.28.0.0/24
+# networks:
+#   universaldot:
+#     name: universaldot
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.28.0.0/24
