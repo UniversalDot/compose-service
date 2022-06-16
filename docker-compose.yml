@@ -1,44 +1,44 @@
 version: "3.5"
 
 services:
-  # node:
-  #   build: ./node
-  #   networks:
-  #     universaldot:
-  #       ipv4_address: 172.28.0.2
-  #   restart: on-failure
-  #   stop_signal: SIGINT
-  #   stop_grace_period: 10s
-  #   ports:
-  #     - 9944:9944
-  #   expose:
-  #     - 9944
-  #   logging:
-  #     driver: "json-file"
-  #     options:
-  #       max-size: "10m"
-  #       max-file: "10"
-  #   command: bash -c "./node-template --dev --ws-external"
+  node:
+    build: ./node
+    networks:
+      universaldot:
+        ipv4_address: 172.28.0.2
+    restart: on-failure
+    stop_signal: SIGINT
+    stop_grace_period: 10s
+    ports:
+      - 9944:9944
+    expose:
+      - 9944
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "10"
+    command: bash -c "./node-template --dev --ws-external"
 
-  # front-end:
-  #   build: ./front-end
-  #   networks:
-  #     universaldot:
-  #       ipv4_address: 172.28.0.3
-  #   restart: on-failure
-  #   stop_signal: SIGINT
-  #   stop_grace_period: 10s
-  #   ports:
-  #     - 8000:8000
-  #   logging:
-  #     driver: "json-file"
-  #     options:
-  #       max-size: "10m"
-  #       max-file: "10"
-  #   environment:
-  #     - PROVIDER_SOCKET=ws://127.0.0.1:9944
-  #     - ENVIROMENT=dev
-  #   command: bash -c "./start.sh start"
+  front-end:
+    build: ./front-end
+    networks:
+      universaldot:
+        ipv4_address: 172.28.0.3
+    restart: on-failure
+    stop_signal: SIGINT
+    stop_grace_period: 10s
+    ports:
+      - 8000:8000
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "10"
+    environment:
+      - PROVIDER_SOCKET=ws://127.0.0.1:9944
+      - ENVIROMENT=dev
+    command: bash -c "./start.sh start"
 
 
 ## IPFS #################################
@@ -95,10 +95,10 @@ volumes:
   peer_cluster:
   tf-model: 
 
-# networks:
-#   universaldot:
-#     name: universaldot
-#     ipam:
-#       driver: default
-#       config:
-#         - subnet: 172.28.0.0/24
+networks:
+  universaldot:
+    name: universaldot
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/24
