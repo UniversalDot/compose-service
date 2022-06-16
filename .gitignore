@@ -1,3 +1,4 @@
 /ipfs-data
 
-/tensorflow/models
+# ignore models files due to large size
+/tensorflow/models/*/
