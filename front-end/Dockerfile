@@ -19,9 +19,9 @@ RUN curl --proto '=https' --tlsv1.2 -sSf -L https://dl.yarnpkg.com/debian/pubkey
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list &&\
   apt-get update && apt-get install gcc g++ make gnupg2 yarn -y
 
-RUN git clone -b universal-master --depth 1 https://github.com/UniversalDot/universal-dot-front-end.git substrate
+RUN git clone -b develop --depth 1 https://github.com/UniversalDot/front-end.git substrate
 WORKDIR /substrate
-RUN yarn install
+RUN npm install
 
 COPY ./start.sh /substrate/start.sh
 RUN chmod 540 /substrate/start.sh
