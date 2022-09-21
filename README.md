@@ -51,7 +51,7 @@ cd compose-service
 ```
 5. Run docker-compose command
 ```
-docker-compose up -d
+docker compose up -d
 ```
 Note: -d flag stands for “detached” mode. When passing the '-d' flag we are running our services in the background.
 
