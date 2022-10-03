@@ -4,8 +4,8 @@ ssh-copy-id root@ip
 adduser udot && usermod -aG sudo udot
 
 # password for sudo - off
-sudo visudo
-%sudo ALL=(ALL:ALL) NOPASSWD:ALL
+# sudo visudo
+# %sudo ALL=(ALL:ALL) NOPASSWD:ALL
 
 ssh-copy-id udot@ip
 
