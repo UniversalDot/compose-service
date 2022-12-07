@@ -6,12 +6,15 @@ Docker compose service that runs both the node and front-end on a single machine
 
 ## Docker-compose Setup 
 
-1. Install [docker](https://docs.docker.com/engine/install/)
-2. Install [docker compose](https://docs.docker.com/compose/install/)
-3. Download this repo via git.
+
+1. Download this repo locally via git.
 
 ```
 git clone https://github.com/UniversalDot/compose-service.git
+```
+Install docker and docker-compose via script
+```
+sh install_docker.sh
 ```
 
 4. Navigate inside the folder...
