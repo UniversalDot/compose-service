@@ -48,7 +48,7 @@ FINAL NOTE: The application is still under development so there might be problem
 
 To stop all running containers simply run: 
 ```
-docker-compose down
+docker compose down
 ```
 
 
