@@ -12,10 +12,12 @@ Docker compose service that runs both the node and front-end on a single machine
 ```
 git clone https://github.com/UniversalDot/compose-service.git
 ```
-Install docker and docker-compose via script
+2. Install docker and docker-compose via script
 ```
 sh install_docker.sh
 ```
+
+3. Verify that the [front-end configuration](https://github.com/UniversalDot/front-end/tree/develop/src/config) is setup correctly for prod/dev.
 
 4. Navigate inside the folder...
 
