@@ -35,7 +35,6 @@ RUN git checkout universal-master
 RUN cargo clean
 RUN cargo build --release
 
-
 WORKDIR /universaldot-node/target/release
 # Expose ports
 EXPOSE 9944

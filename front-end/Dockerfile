@@ -33,7 +33,6 @@ RUN apt-get autoremove -y
 RUN apt-get clean
 RUN apt-get autoclean
 
-
 # Creating non root user substrate
 RUN useradd -m substrate
 

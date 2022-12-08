@@ -1,6 +1,8 @@
 version: "3.5"
 
 services:
+
+  ## UNIVERSALDOT NODE #####################
   node:
     build: ./node
     networks:
@@ -20,6 +22,7 @@ services:
         max-file: "10"
     command: bash -c "./node-template --dev --ws-external"
 
+  ## UNIVERSALDOT FRONT-END ################
   front-end:
     build: ./front-end
     networks:
@@ -41,8 +44,7 @@ services:
     command: bash -c "./start.sh start"
 
 
-## IPFS #################################
-
+  ## IPFS #################################
   ipfs-node:
     image: ipfs/go-ipfs:v0.5.1
     restart: on-failure
@@ -54,6 +56,7 @@ services:
       - ./ipfs-data/daemon/staging:/export
       - ./ipfs-data/daemon/data:/data/ipfs
 
+  ## IPFS CLUSTER #########################
   ipfs-cluster:
     image: ipfs/ipfs-cluster:v0.13.0
     container_name: ipfs-cluster
@@ -72,9 +75,7 @@ services:
     volumes:
       - ./ipfs-data/cluster:/data/ipfs-cluster
 
-
   ## TensorFlow #################################
-
   tensorflow-serving:
     build: ./tensorflow
     container_name: tensorflow
